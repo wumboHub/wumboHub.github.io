@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>Loren Mendoza</title>
+        <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'> <!-- font -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> <!-- font -->
+        <link rel="stylesheet" href="styles.css">
+        
+        <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+    </head>    
+
+    <body class="tiled">
+        <header>
+            <h1>Loren Mendoza</h1>
+        </header>
+
+        <main>
+            <div>
+                <ul class="toc-list">
+                    <li><a href="#home" id="home-page">Home</a></li>
+                    <li><a href="#games" id="games-page">Games</a></li>
+                    <li><a href="#about" id="about-page">About</a></li>
+                </ul>
+            </div>  
+
+            <div id="main-content-container">
+
+                This is the home page (original).
+                
+
+            </div>
+        </main>
+
+        <script>
+            var mainContent = document.getElementById("main-content-container");
+            
+
+            document.getElementById("home-page").addEventListener("click", function() {
+                mainContent.innerHTML = "This is the home page (from table of contents).";
+            });
+
+
+
+            document.getElementById("games-page").addEventListener("click", function() {
+                mainContent.innerHTML = '<object id=onslaught data="Black-5-main_Final/index.html"></object>';
+            });
+            
+
+
+            document.getElementById("about-page").addEventListener("click", function() {
+                var aboutPortrait = '<div style="float:left;"><img src="images/portrait.jpeg"  alt="2022" title="Loren Mendoza" id="myPortrait"/></div>';
+                mainContent.innerHTML = aboutPortrait + '<div style="float:right;">This is the about page.</div>';
+            });
+
+
+        </script>    
+</body>   
+</html>

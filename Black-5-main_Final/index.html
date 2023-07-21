@@ -1,0 +1,249 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <title>Ye Olde Onslaught</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Felipa&family=Noto+Sans&family=Noto+Serif&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script type="text/javascript" src="assetmanager.js"></script>
+    <script type="text/javascript" src="timer.js"></script>
+    <script type="text/javascript" src="gameengine.js"></script>
+    <script type="text/javascript" src="util.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="animator.js"></script>
+    <script type="text/javascript" src="hero.js"></script>
+    <script type="text/javascript" src="zombie.js"></script>
+    <script type="text/javascript" src="skeleton.js"></script>
+    <script type="text/javascript" src="arrow.js"></script>
+    <script type="text/javascript" src="crossbow.js"></script>
+    <script type="text/javascript" src="sceneManager.js"></script>
+    <script type="text/javascript" src="startmenu.js"></script>
+    <script type="text/javascript" src="boundingbox.js"></script>
+    <script type="text/javascript" src="witch.js"></script>
+    <script type="text/javascript" src="levels.js"></script>
+    <script type="text/javascript" src="map.js"></script>
+    <script type="text/javascript" src="wall.js"></script>
+    <script type="text/javascript" src="sword.js"></script>
+    <script type="text/javascript" src="pistol.js"></script>
+    <script type="text/javascript" src="bullet.js"></script>
+    <script type="text/javascript" src="dragon.js"></script>
+    <script type="text/javascript" src="dragonfireball.js"></script>
+    <script type="text/javascript" src="shotgun.js"></script>
+    <script type="text/javascript" src="witchFireball.js"></script>
+    <script type="text/javascript" src="exp.js"></script>
+    <script type="text/javascript" src="healthPack.js"></script>
+    <script type="text/javascript" src="armor.js"></script>
+    <script type="text/javascript" src="shop.js"></script>
+    <script type="text/javascript" src="grenade.js"></script>
+    <script type="text/javascript" src="grenades.js"></script>
+
+    <meta property="og:title" content="Ye Olde Onslaught"/>
+    <meta property="og:description" content="A game by the TCSS 491 A Wi 21 Black 5 project group."/>
+    <meta property="og:image" content="./social-preview.png"/>
+    <meta property="og:image:width" content="1280"/>
+    <meta property="og:image:height" content="640"/>
+</head>
+
+<body>
+    <div>
+        <canvas id="gameWorld" width="1024" height="720" tabindex="0" autofocus></canvas>
+    </div>
+    <div id="shop" tabindex="1">
+        <h1>Shop</h1>
+        <div id="tabRow">
+            <button id="swordButton">Sword</button>
+            <button id="crossbowButton">Crossbow</button>
+            <button id="pistolButton">Pistol</button>
+            <button id="shotgunButton">Shotgun</button>
+            <button id="grenadeButton">Grenade</button>
+        </div>
+        <p id="experience">Experience points: <span class="currentExperience"></span></p>
+        <div id="swordTab" class="tab">
+            <div class="preview">
+                <h2>Sword</h2>
+                <img id="swordImage" src="sprites/sword_image.png" alt="sword">
+            </div>
+            <p class="description">An 11th-century Norman sword dating to the Norman Conquest.</p>
+            <p class="price"><span class="swordCost"></span> experience points</p>
+            <p class="price">Attack damage upgrade: <span class="swordAttackDamageUpgradeCost"></span> experience points
+            </p>
+            <h3 class="details">Weapon Details</h3>
+            <hr>
+            <p class="weaponDetail">Attack damage: <span class="swordAttackDamage"></span></p>
+            <meter id="swordAttackDamageMeter" min="0" max="50" value="0"></meter>
+            <button id="swordAttackDamageUpgradeButton" class="upgradeButton">Upgrade</button>
+        </div>
+        <div id="crossbowTab" class="tab">
+            <div class="preview">
+                <h2>Crossbow</h2>
+                <img id="crossbowImage" src="sprites/crossbow_image.png" alt="crossbow">
+            </div>
+            <p class="description">An 11th-century medieval crossbow used at the Battle of
+                Hastings. It uses a rolling nut lock, an early design that
+                allows quick firing at the expense of its maximum tension.</p>
+            <p class="price"><span class="crossbowCost"></span> experience points</p>
+            <p class="price">Attack damage upgrade: <span class="crossbowAttackDamageUpgradeCost"></span> experience
+                points
+            </p>
+            <p class="price">Reload speed upgrade: <span class="crossbowReloadSpeedUpgradeCost"></span> experience
+                points
+            </p>
+            <p class="price"><span class="crossbowAmmoUnit"></span> arrow(s): <span class="crossbowAmmoUnitCost"></span>
+                experience points</p>
+            <h3 class="details">Weapon Details</h3>
+            <hr>
+            <p class="weaponDetail">Attack damage: <span class="crossbowAttackDamage"></span></p>
+            <meter id="crossbowAttackDamageMeter" min="0" max="40" value="0"></meter>
+            <button id="crossbowAttackDamageUpgradeButton" class="upgradeButton">Upgrade</button>
+            <p class="weaponDetail">Reload speed: <span class="crossbowReloadSpeed"></span> s</p>
+            <meter id="crossbowReloadSpeedMeter" min="0" max="1" value="0"></meter>
+            <button id="crossbowReloadSpeedUpgradeButton" class="upgradeButton">Upgrade</button>
+            <p class="weaponDetail">Ammo: <span class="crossbowAmmo"></span> arrow(s)</p>
+            <meter id="crossbowAmmoMeter" min="0" max="200" value="0"></meter>
+            <button id="crossbowAmmoButton" class="upgradeButton">Buy Increase</button>
+        </div>
+        <div id="pistolTab" class="tab">
+            <div class="preview">
+                <h2>Pistol</h2>
+                <img id="pistolImage" src="sprites/pistol_image.png" alt="pistol">
+            </div>
+            <p class="description">A Queen Anne flintlock pistol from early 18th-century England.
+                While it was often used as a civilian self-defense weapon, its rifled
+                barrel allows accurate shooting across long distances.
+            </p>
+            <p class="price"><span class="pistolCost"></span> experience points</p>
+            <p class="price">Attack damage upgrade: <span class="pistolAttackDamageUpgradeCost"></span> experience
+                points
+            </p>
+            <p class="price">Reload speed upgrade: <span class="pistolReloadSpeedUpgradeCost"></span> experience points
+            </p>
+            <p class="price"><span class="pistolAmmoUnit"></span> shot(s): <span class="pistolAmmoUnitCost"></span>
+                experience
+                points</p>
+            <button id="pistolBuyButton" class="upgradeButton">Buy</button>
+            <h3 class="details">Weapon Details</h3>
+            <hr>
+            <p class="weaponDetail">Attack damage: <span class="pistolAttackDamage"></span></p>
+            <meter id="pistolAttackDamageMeter" min="0" max="40" value="0"></meter>
+            <button id="pistolAttackDamageUpgradeButton" class="upgradeButton">Upgrade</button>
+            <p class="weaponDetail">Reload speed: <span class="pistolReloadSpeed"></span> s</p>
+            <meter id="pistolReloadSpeedMeter" min="0" max="1" value="0"></meter>
+            <button id="pistolReloadSpeedUpgradeButton" class="upgradeButton">Upgrade</button>
+            <p class="weaponDetail">Ammo: <span class="pistolAmmo"></span> bullet(s)</p>
+            <meter id="pistolAmmoMeter" min="0" max="200" value="0"></meter>
+            <button id="pistolAmmoButton" class="upgradeButton">Buy Increase</button>
+        </div>
+        <div id="shotgunTab" class="tab">
+            <div class="preview">
+                <h2>Shotgun</h2>
+                <img id="shotgunImage" src="sprites/shotgun_image.png" alt="shotgun">
+            </div>
+            <p class="description">A double-barreled shotgun from late 19th-century
+                USA.</p>
+            <p class="price"><span class="shotgunCost"></span> experience points</p>
+            <p class="price">Attack damage upgrade: <span class="shotgunAttackDamageUpgradeCost"></span> experience
+                points
+            </p>
+            <p class="price">Reload speed upgrade: <span class="shotgunReloadSpeedUpgradeCost"></span> experience points
+            </p>
+            <p class="price"><span class="shotgunAmmoUnit"></span> shot(s): <span class="shotgunAmmoUnitCost"></span>
+                experience points</p>
+            <button id="shotgunBuyButton" class="upgradeButton">Buy</button>
+            <h3 class="details">Weapon Details</h3>
+            <hr>
+            <p class="weaponDetail">Attack damage: <span class="shotgunAttackDamage"></span></p>
+            <meter id="shotgunAttackDamageMeter" min="0" max="40" value="0"></meter>
+            <button id="shotgunAttackDamageUpgradeButton" class="upgradeButton">Upgrade</button>
+            <p class="weaponDetail">Reload speed: <span class="shotgunReloadSpeed"></span> s</p>
+            <meter id="shotgunReloadSpeedMeter" min="0" max="1" value="0"></meter>
+            <button id="shotgunReloadSpeedUpgradeButton" class="upgradeButton">Upgrade</button>
+            <p class="weaponDetail">Ammo: <span class="shotgunAmmo"></span> shot(s)</p>
+            <meter id="shotgunAmmoMeter" min="0" max="200" value="0"></meter>
+            <button id="shotgunAmmoButton" class="upgradeButton">Buy Increase</button>
+        </div>
+        <div id="grenadeTab" class="tab">
+            <div class="preview">
+                <h2>Grenade</h2>
+                <img id="grenadeImage" src="sprites/grenade.png" alt="grenade">
+            </div>
+            <p class="description">A 17th-century ceramic hand grenade from Ingolstadt,
+                Germany. This type of grenade is used by filling it with about 130 grams of
+                black powder and detonating it with a wooden plug. As these
+                varied from 1.3 to 4.5 kilograms in mass, throwing them long
+                distances is difficult.</p>
+            <p class="price"><span class="grenadeCost"></span> experience points</p>
+            <p class="price"><span class="grenadeAmmoUnit"></span> grenade(s): <span class="grenadeAmmoUnitCost"></span>
+                experience points</p>
+            <button id="grenadeBuyButton" class="upgradeButton">Buy</button>
+            <h3 class="details">Weapon Details</h3>
+            <hr>
+            <p class="weaponDetail">Ammo: <span class="grenadeAmmo"></span> grenade(s)</p>
+            <meter id="grenadeAmmoMeter" min="0" max="3" value="0"></meter>
+            <button id="grenadeAmmoButton" class="upgradeButton">Buy Increase</button>
+        </div>
+    </div>
+    <div>
+        <p><input type="checkbox" id="debug"> Debug <input type="checkbox" id="mute"> Mute <input type="range"
+                id="volume" min="0" max="1" value="0.1" step="0.05"> Volume</p>
+    </div>
+    <div>
+        <h3>Controls</h3>
+        <p class="controls">Use WASD or arrow keys for movement.</p>
+        <p class="controls">Use Q to switch between a pistol, crossbow and shotgun.</p>
+        <p class="controls">Use E to switch to a sword.</p>
+        <p class="controls">Use space or click to attack.</p>
+        <p class="controls">Use G to equip a grenade.</p>
+        <p class="controls">Use T to open the shop.</p>
+        <p class="controls">Use P to pause the game.</p>
+    </div>
+
+    <div id="credits">
+        <h3>Music Credits</h3>
+        <div class="songcredit" id="chilvibes">
+            <a href="music/ChillVibes.mp3">Chill Vibes as Dragon Flies</a> by Espen Storfjell<br />
+        </div>
+        <br />
+        <div class="songcredit" id="unholyknight">
+            Unholy Knight by Kevin MacLeod<br />
+            Link: <a
+                href="https://incompetech.filmmusic.io/song/4563-unholy-knight">https://incompetech.filmmusic.io/song/4563-unholy-knight</a>
+            <br />
+            License: <a href="https://filmmusic.io/standard-license">https://filmmusic.io/standard-license</a><br />
+        </div>
+        <br />
+        <div class="songcredit" id="wretcheddestroyer">
+            Wretched Destroyer by Kevin MacLeod<br />
+            Link: <a
+                href="https://incompetech.filmmusic.io/song/5017-wretched-destroyer">https://incompetech.filmmusic.io/song/5017-wretched-destroyer</a>
+            <br />
+            License: <a href="https://filmmusic.io/standard-license">https://filmmusic.io/standard-license</a><br />
+        </div>
+        <br />
+        <div class="songcredit" id="grimidol">
+            Grim Idol by Kevin MacLeod<br />
+            Link: <a
+                href="https://incompetech.filmmusic.io/song/3828-grim-idol">https://incompetech.filmmusic.io/song/3828-grim-idol</a>
+            <br />
+            License: <a href="https://filmmusic.io/standard-license">https://filmmusic.io/standard-license</a><br />
+        </div>
+        <h3>Image Credits</h3>
+        Handgrenades Ingolstadt by Andreas Franzkowiak<br />
+        Link: <a
+            href="https://en.wikipedia.org/wiki/File:Handgrenades_Ingolstadt.jpg">https://en.wikipedia.org/wiki/File:Handgrenades_Ingolstadt.jpg</a>
+        <br />
+        License: <a
+            href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">https://creativecommons.org/licenses/by-sa/3.0/deed.en</a>
+        <br />
+        Changes: Cropped and reduced resolution.
+    </div>
+
+</body>
+
+</html>

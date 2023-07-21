@@ -1,0 +1,142 @@
+body {
+    max-width: 1024px;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+#gameWorld {
+    background: white;
+    border: 1px solid black;
+}
+
+.controls {
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+#shop {
+    position: relative;
+    bottom: 720px;
+    background-color: linen;
+    height: 650px;
+    margin-left: 50px;
+    margin-right: 50px;
+    display: none;
+    font-family: 'Noto Serif', serif;
+    padding-left: 5px;
+	padding-right: 5px;
+}
+
+h1 {
+    font-family: 'Felipa', serif;
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 5px;
+}
+
+#experience {
+    float: right;
+    margin-top: 0px;
+}
+
+h2 {
+    font-family: 'Felipa', serif;
+    font-size: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.preview {
+    text-align: center;
+    width: 300px;
+}
+
+#tabRow {
+    background-color: lightgray;
+    height: 30px;
+    font-family: 'Noto Serif', serif;
+}
+
+.tab {
+    display: none;
+}
+
+#swordTab {
+    display: block;
+}
+
+button {
+    background-color: inherit;
+    border-width: 0px;
+    height: inherit;
+    font-family: inherit;
+    font-size: 20px;
+    margin-right: 50px;
+}
+
+button:hover {
+    background-color: gray;
+}
+
+img {
+    width: inherit;
+    height: auto;
+    margin-top: 0px;
+    margin-right: 20px;
+    margin-bottom: 350px;
+    float: left;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+}
+
+.description {
+    margin-top: 0px;
+    font-family: 'Noto Serif', serif;
+    font-size: 14px;
+}
+
+.price {
+    font-family: 'Noto Serif', serif;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.details {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-family: 'Noto Serif', serif;
+}
+
+.tableLeft {
+    font-family: 'Noto Serif', serif;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.tableRight {
+    font-family: 'Noto Serif', serif;
+    font-size: 14px;
+}
+
+.weaponDetail {
+    margin-bottom: 0px;
+    font-family: 'Noto Serif', serif;
+    font-size: 14px;
+}
+
+meter {
+    width: 300px;
+}
+
+.upgradeButton {
+    display: block;
+    background-color:lightgray;
+    border-width: 0px;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.upgradeButton:hover {
+    background-color: gray;
+}

@@ -1,0 +1,45 @@
+html {
+    background-color: rgb(219, 255, 255);
+}
+
+.toc-list {
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(58, 58, 58);
+}
+
+.toc-list li {
+    float: left;
+}
+
+.toc-list li a {
+    display: block;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+.toc-list li a:hover {
+    background-color: rgb(126, 126, 126);
+}
+
+h1 { 
+    text-align: center;
+    color: black;
+    font-size: 70px;
+    margin-bottom: 0px;
+    text-decoration: none;
+}
+
+#main-content-container #onslaught {
+    width: 1040px;
+    height: 1550px;
+}
+
+#myPortrait {
+    max-width: 500px;
+    max-height: 500px;
+}
