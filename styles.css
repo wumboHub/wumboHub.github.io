@@ -26,12 +26,19 @@ html {
     background-color: rgb(126, 126, 126);
 }
 
-h1 { 
-    text-align: center;
+#page-title { 
+    text-decoration: none;
     color: black;
+}
+
+h1 {  
+    text-align: center;
     font-size: 70px;
     margin-bottom: 0px;
-    text-decoration: none;
+}
+
+h2 {
+    font-size: 23px;
 }
 
 #main-content-container #onslaught {
@@ -39,7 +46,33 @@ h1 {
     height: 1550px;
 }
 
-#myPortrait {
+#self-portrait {
     max-width: 500px;
     max-height: 500px;
+    float: left;
+    margin-right: 10px;
+}
+
+.gameListButton {
+    background-color: cyan;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 300px;
+    height: 200px;
+    font-weight: bold;
+    font-size:x-large;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.gameListButton #gameImage {
+    width: 105%;
+    height: 101%;
+}
+
+#gameList {
+    list-style: none;
+    margin-bottom: 30px;
+    background-color: lightgrey;
 }

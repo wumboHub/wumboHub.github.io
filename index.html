@@ -10,45 +10,117 @@
 
     <body class="tiled">
         <header>
-            <h1>Loren Mendoza</h1>
+            <h1><a href="index.html" id="page-title">Loren Mendoza</a></h1>
+            <h2>Email: loren.mendoza97@gmail.com</h2>
         </header>
 
         <main>
             <div>
                 <ul class="toc-list">
-                    <li><a href="#home" id="home-page">Home</a></li>
+                    <li><a href="index.html" id="home-page">Home</a></li>
                     <li><a href="#games" id="games-page">Games</a></li>
-                    <li><a href="#about" id="about-page">About</a></li>
+                    <li><a href="#contact" id="contact-page">Contact</a></li>
                 </ul>
             </div>  
 
-            <div id="main-content-container">
 
-                This is the home page (original).
-                
+            <div id="main-content-container">
+                <img src='images/portrait.jpeg' alt='Self portrait' id='self-portrait'> 
+                <p>This is the home page (original).</p>
 
             </div>
+
         </main>
 
+
+
+
+
         <script>
+            // Display for content below the navigation bar
             var mainContent = document.getElementById("main-content-container");
-            
 
-            document.getElementById("home-page").addEventListener("click", function() {
-                mainContent.innerHTML = "This is the home page (from table of contents).";
+            // document.getElementById("games-page").addEventListener("click", function() {
+            //     mainContent.innerHTML = '<object id=onslaught data="Black-5-main_Final/index.html"></object>';
+            // });
+
+            document.getElementById("contact-page").addEventListener("click", function() {
+                mainContent.innerHTML = "Find my contact info here";
             });
 
+            document.addEventListener("DOMContentLoaded", function () {
+                // Get references to elements
+                var showListButton = document.getElementById("games-page");
+
+                // Event listener for the "Show List" button
+                showListButton.addEventListener("click", function () {
+                    // Clear existing content
+                    mainContent.innerHTML = "";
+
+                    // Create a list of clickable buttons
+                    var buttonList = document.createElement("ul");
 
 
-            document.getElementById("games-page").addEventListener("click", function() {
-                mainContent.innerHTML = '<object id=onslaught data="Black-5-main_Final/index.html"></object>';
-            });
-            
+
+                    //YE OLDE ONSLAUGHT
+                    var listItem = document.createElement("li");
+                    listItem.id = "gameList";
+                    var button = document.createElement("button");
+                    button.className = "gameListButton";
+                    //button.textContent = "Ye Olde Onslaught";
+
+                    // Create the image element
+                    var img = document.createElement("img");
+                    img.id = "gameImage";
+                    img.src = "images/YeOldeOnslaught.png";
+                    img.alt = "Game Image";
+
+                    // Append the image element to the button
+                    button.appendChild(img);
+
+                    // Add event listener to each button
+                    button.addEventListener("click", function (event) {
+                        mainContent.innerHTML = "";
+                        mainContent.innerHTML = '<object id=onslaught data="Black-5-main_Final/index.html"></object>';
+                    });
+
+                    listItem.appendChild(button);
+                    buttonList.appendChild(listItem);
 
 
-            document.getElementById("about-page").addEventListener("click", function() {
-                var aboutPortrait = '<div style="float:left;"><img src="images/portrait.jpeg"  alt="2022" title="Loren Mendoza" id="myPortrait"/></div>';
-                mainContent.innerHTML = aboutPortrait + '<div style="float:right;">This is the about page.</div>';
+
+                    //FLIPPY BIRB
+                    listItem = document.createElement("li");
+                    listItem.id = "gameList";
+                    button = document.createElement("button");
+                    button.className = "gameListButton";
+                    //button.textContent = "Flippy Birb";
+
+                    // Create the image element
+                    var img = document.createElement("img");
+                    img.id = "gameImage";
+                    img.src = "images/FlippyBirb.png";
+                    img.alt = "Game Image";
+
+                    // Append the image element to the button
+                    button.appendChild(img);
+
+                    // Add event listener to each button
+                    button.addEventListener("click", function (event) {
+                        mainContent.innerHTML = "";
+                        mainContent.innerHTML = '<object id=onslaught data="FlippyBirb/index.html"></object>';
+                    });
+
+                    listItem.appendChild(button);
+                    buttonList.appendChild(listItem);
+
+
+
+
+
+                    // Append the list to the main content
+                    mainContent.appendChild(buttonList);
+                });
             });
 
 
