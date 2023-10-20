@@ -34,11 +34,16 @@ html {
 h1 {  
     text-align: center;
     font-size: 70px;
-    margin-bottom: 0px;
+    margin-bottom: -20px;
 }
 
 h2 {
     font-size: 23px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 30px;
 }
 
 #main-content-container #onslaught {
@@ -53,26 +58,42 @@ h2 {
     margin-right: 10px;
 }
 
-.gameListButton {
-    background-color: cyan;
+.two-column-list {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+}
+
+.two-column-list li {
+    flex: 1;
+    margin: 0 0 10px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: flex-end;
-    width: 300px;
-    height: 200px;
-    font-weight: bold;
-    font-size:x-large;
-    font-family: 'Times New Roman', Times, serif;
+    background: gray;
 }
 
-.gameListButton #gameImage {
-    width: 105%;
-    height: 101%;
+.left-column {
+    display: flex;
+    align-items: center;
 }
 
-#gameList {
-    list-style: none;
-    margin-bottom: 30px;
-    background-color: lightgrey;
+.left-column img {
+    width: 320px;
+    height: 180px;
+}
+
+.left-column button {
+    
+}
+
+.right-column {
+    flex: 1;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#gameDescription {
+   font-size: 18px
 }

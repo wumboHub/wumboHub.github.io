@@ -34,92 +34,81 @@
 
 
 
-
-
         <script>
-            // Display for content below the navigation bar
+            // Create a list of clickable buttons for games
+            var gamesList = document.createElement("ul");
+            gamesList.className = "two-column-list";
+
             var mainContent = document.getElementById("main-content-container");
 
-            // document.getElementById("games-page").addEventListener("click", function() {
-            //     mainContent.innerHTML = '<object id=onslaught data="Black-5-main_Final/index.html"></object>';
-            // });
+            // Function for loading a game into the Games tab
+            function loadGameListItem(gameTitle,  gameIndexHTML, imgSrc, gifSrc, description) {
+                var listItem = document.createElement("li");
 
-            document.getElementById("contact-page").addEventListener("click", function() {
-                mainContent.innerHTML = "Find my contact info here";
-            });
+                // Create the left column (image and button)
+                var leftColumn = document.createElement("div");
+                leftColumn.className = "left-column";
 
+                // Create the image element
+                var img = document.createElement("img");
+                img.src = imgSrc;
+
+                // Create the game button and add image
+                var game = document.createElement("button");
+                game.addEventListener("click", function () {
+                    mainContent.innerHTML = '<iframe src="' + gameIndexHTML + '" style="width: 1920px; height: 1080px;"></iframe>';
+                });
+
+                game.addEventListener("mouseenter", function () {
+                    img.src = gifSrc; // Change the image source on hover
+                });
+
+                game.addEventListener("mouseleave", function () {
+                    img.src = imgSrc; // Restore the original image on mouse leave
+                });
+
+                game.appendChild(img); // Add image to button
+                leftColumn.appendChild(game); // Add button to list
+
+                // Create the right column (text)
+                var rightColumn = document.createElement("div");
+                rightColumn.className = "right-column";
+                rightColumn.innerHTML = "<h3>" + gameTitle + "</h3><p id=gameDescription>" + description + "</p>";
+
+                // Append the left and right columns to the list item
+                listItem.appendChild(leftColumn);
+                listItem.appendChild(rightColumn);
+
+                // Append the list item to the gamesList
+                gamesList.appendChild(listItem);
+            }
+
+
+
+            // Wait for HTML to be loaded, then execute function
             document.addEventListener("DOMContentLoaded", function () {
-                // Get references to elements
-                var showListButton = document.getElementById("games-page");
+                // GAMES PAGE
+                var showGames = document.getElementById("games-page");
 
                 // Event listener for the "Show List" button
-                showListButton.addEventListener("click", function () {
+                showGames.addEventListener("click", function () {
                     // Clear existing content
                     mainContent.innerHTML = "";
+                    gamesList.innerHTML = ""; // Clear the games list
 
-                    // Create a list of clickable buttons
-                    var buttonList = document.createElement("ul");
+                    // Append the gamesList to the main content
+                    mainContent.appendChild(gamesList);
 
+                    // LOAD GAMES HERE
+                    var description = "Medieval shooting game.";
+                    loadGameListItem("Ye Olde Onslaught", 'Black-5-main_Final/index.html', 'images/YeOldeOnslaught.png', 'images/YOOgif.gif', description);
+                    description = "My attempt at recreating Flappy Bird.";
+                    loadGameListItem("Flippy Birb", 'FlippyBirb/index.html', 'images/FlippyBirb.png', 'images/FBgif.gif', description);
+                });
 
-
-                    //YE OLDE ONSLAUGHT
-                    var listItem = document.createElement("li");
-                    listItem.id = "gameList";
-                    var button = document.createElement("button");
-                    button.className = "gameListButton";
-                    //button.textContent = "Ye Olde Onslaught";
-
-                    // Create the image element
-                    var img = document.createElement("img");
-                    img.id = "gameImage";
-                    img.src = "images/YeOldeOnslaught.png";
-                    img.alt = "Game Image";
-
-                    // Append the image element to the button
-                    button.appendChild(img);
-
-                    // Add event listener to each button
-                    button.addEventListener("click", function (event) {
-                        mainContent.innerHTML = "";
-                        mainContent.innerHTML = '<object id=onslaught data="Black-5-main_Final/index.html"></object>';
-                    });
-
-                    listItem.appendChild(button);
-                    buttonList.appendChild(listItem);
-
-
-
-                    //FLIPPY BIRB
-                    listItem = document.createElement("li");
-                    listItem.id = "gameList";
-                    button = document.createElement("button");
-                    button.className = "gameListButton";
-                    //button.textContent = "Flippy Birb";
-
-                    // Create the image element
-                    var img = document.createElement("img");
-                    img.id = "gameImage";
-                    img.src = "images/FlippyBirb.png";
-                    img.alt = "Game Image";
-
-                    // Append the image element to the button
-                    button.appendChild(img);
-
-                    // Add event listener to each button
-                    button.addEventListener("click", function (event) {
-                        mainContent.innerHTML = "";
-                        mainContent.innerHTML = '<object id=onslaught data="FlippyBirb/index.html"></object>';
-                    });
-
-                    listItem.appendChild(button);
-                    buttonList.appendChild(listItem);
-
-
-
-
-
-                    // Append the list to the main content
-                    mainContent.appendChild(buttonList);
+                // CONTACT PAGE
+                document.getElementById("contact-page").addEventListener("click", function() {
+                    mainContent.innerHTML = "Find my contact info here";
                 });
             });
 
