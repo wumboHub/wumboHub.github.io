@@ -91,6 +91,12 @@ class GameEngine {
             that.click = getXandY(e);
         }, false);
 
+        //listens for mouse click and release
+        this.ctx.canvas.addEventListener("touchstart", function (e) {
+            // console.log(getXandY(e));
+            that.click = getXandY(e);
+        }, false);
+
         // listens for scroll wheel movement
         this.ctx.canvas.addEventListener("wheel", function (e) {
             //console.log(getXandY(e));
