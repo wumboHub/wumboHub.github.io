@@ -17,7 +17,7 @@
         <main>
             <div>
                 <ul class="toc-list">
-                    <li><a href="index.html" id="home-page">Home</a></li>
+                    <li><a href="index.html" id="home-page">About</a></li>
                     <li><a href="#games" id="games-page">Games</a></li>
                     <li><a href="#contact" id="contact-page">Contact</a></li>
                 </ul>
@@ -26,7 +26,32 @@
 
             <div id="main-content-container">
                 <img src='images/portrait.jpeg' alt='Self portrait' id='self-portrait'> 
-                <p>This is the home page (original).</p>
+                <h3>Early Life</h3>
+                <p id="biography">
+                Growing up, my fascination with technology started long before I could even read or write. My earliest memories involve the captivating world of video games on a GameBoy Advance. Curiosity about the inner workings of these devices fueled my passion for understanding how things functioned. Through my upbringing and education, I learned to adapt quickly to new challenges over time, including multiple relocations due to my father's military postings. 
+                </p>
+
+                <h3>The Road to Graduation</h3>
+                <p id="biography">
+                My journey to complete my <a href="https://www.tacoma.uw.edu/set/programs/undergrad/css" style="color:black; ">undergraduate degree in Computer Science</a> was far from conventional. Overcoming obstacles, including credit transfer issues and academic challenges, led to a delayed but immensely rewarding graduation. My uncle's expertise in our shared field has been invaluable. His guidance and wealth of knowledge have consistently reignited my passion for this field during moments of doubt. Crossing that stage symbolized resilience, determination, and the triumph of perseverance. 
+                </p>
+
+                <h3>Paths to Professional Growth</h3>
+                <p id="biography">
+                My professional journey has also been a bit unconventional along the way, having taken on diverse roles, from working as a server at Qdoba to creating IT seminar flyers during an on-campus job. Despite these experiences, my formal foray into my field was delayed. However, armed with a Computer Science degree and a thirst for practical application, I'm eager to channel my knowledge into meaningful contributions.
+                </p>
+
+                <h3>Adaptability in Coding</h3>
+                <p id="biography">
+                My guiding principle in coding is producing error-free code that functions flawlessly. I thrive on the challenge of staying abreast of evolving technologies. Embracing the ever-changing landscape of my field, I constantly immerse myself in learning new languages and programs. This adaptability ensures I remain agile and ready to tackle emerging trends.<br><br>
+                Joining a gaming collective pushed me to swiftly grasp Unity in a matter of weeks. Collaborating on developing the crafting system display, input, and recipe storage for our game serves as proof of my ability to absorb and apply new concepts efficiently. In an attempt to retain the knowledge I had gained, I recreated “Jeopardy!” from scratch within a mere two months and it stands as a testament to my dedication and technical prowess.
+                </p>
+
+                <h3>Future Goals</h3>
+                <p id="biography">
+                Looking ahead, my aspirations include mastering additional programming languages and technologies. Also, financial independence is a significant driving force for me. Witnessing my family's struggles with finances has instilled in me a deep-rooted desire to support myself and, in turn, be a pillar of support for my parents. Ultimately, I aim for a remote position that not only utilizes my skills but also offers financial stability, enabling me to pursue my career passionately and wholeheartedly.
+                </p>
+
 
             </div>
 
@@ -99,11 +124,13 @@
                     // Append the gamesList to the main content
                     mainContent.appendChild(gamesList);
 
-                    // LOAD GAMES HERE
+                    // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv LOAD GAMES HERE vvvvvvvvvvvvvvvvvvvvvvvvvvvv
                     var description = "Medieval shooting game.";
                     loadGameListItem("Ye Olde Onslaught", 'Black-5-main_Final/index.html', 'images/YeOldeOnslaught.png', 'images/YOOgif.gif', description);
                     description = "My attempt at recreating Flappy Bird.";
                     loadGameListItem("Flippy Birb", 'FlippyBirb/index.html', 'images/FlippyBirb.png', 'images/FBgif.gif', description);
+                    description = "My attempt at recreating Jeopardy.";
+                    loadGameListItem("Jeopardy!", 'Jeopardy/index.html', 'images/FlippyBirb.png', 'images/FBgif.gif', description);
                 });
 
                 // CONTACT PAGE
